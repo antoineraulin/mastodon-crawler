@@ -1,5 +1,6 @@
 <?php
 ini_set('max_execution_time', 600);
+$time_start = microtime(true);
 $dochtml = new DOMDocument();
 $dochtml->loadHTMLFile("https://instances.mastodon.xyz/");
 $time = true;
@@ -51,5 +52,8 @@ foreach ($countryslist as $item) {
         $countryslist2[$item] = $int + 1;
 }    
 print_r($countryslist2);
+$time_end = microtime(true);
+    $time = $time_end - $time_start;
+    echo "<br>Process Time: {$time}";
 
 ?>
